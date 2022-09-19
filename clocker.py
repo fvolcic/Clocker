@@ -7,6 +7,9 @@ import sys
 import shutil
 
 def main(option): 
+    if option == "help":
+        clock_help()
+        exit(0)
     if option != 'init':
         check_initialization()
     if option == "in":
@@ -33,6 +36,16 @@ def clock_out():
 
 def clock_uninit():
     shutil.rmtree(os.path.expanduser("~/.clocker"))
+
+def clock_help():
+    print("Welcome to clocker!")
+    print("Clocker is currently under development, so its use is limited.")
+    print("\nClocker is a command line clock utility allowing easy clocking in and out for a user.")
+    print("Functions: ")
+    print("clocker init - initialize clocker")
+    print("clocker in - clock in")
+    print("clocker out - clocker out")
+    print("clocker reinit - reinit the clocker file.")
 
 def clock_init():
     """Initialize clocker for the given user."""
@@ -121,7 +134,7 @@ class ClockFile:
             f.write(json.dumps(self.clocker_json))
 
 if __name__ == "__main__":
-    valid_args = {"in", "out", "init", "reinit"}
+    valid_args = {"in", "out", "init", "reinit", "help"}
     if len(sys.argv) < 2:
         print("Error: please specify an action.")
         exit(1)

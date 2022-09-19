@@ -1,0 +1,26 @@
+
+The clocker file will be layed out as follows:
+
+{ 
+    "clocker-settings": { ...SETTINGS... }
+
+    "clocker-state": { "user":<user>,
+                        "project":<project>
+                     },
+
+    "clocker-data": { 
+        "user":{
+            "project 1":{
+                "punch_data":[
+
+                ]
+            },
+            "project 2":{
+                "punch_data":[
+                    
+                ]
+            }
+        }
+     },
+
+}
